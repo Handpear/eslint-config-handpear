@@ -4,6 +4,12 @@ Handpear ESLint 规则
 
 一套适用于 React/Vue/Typescript 项目的 ESLint 配置规范。
 
+## 安装
+
+```shell
+pnpm add -D eslint-config-handpear
+```
+
 ## 相关链接
 
 [eslint-config-alloy](https://alloyteam.github.io/eslint-config-alloy/?language=zh-CN)
