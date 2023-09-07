@@ -1,0 +1,14 @@
+node_modules
+build
+dist
+public
+
+.vitepress/dist
+.vitepress/cache
+
+*.html
+*.md
+*.json
+*.min.{js,mjs,cjs,ts,mts,cts}
+
+rules/**/bad.*
