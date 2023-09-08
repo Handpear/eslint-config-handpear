@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-handpear",
   "description": "specific rules for ESLint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "handpear<handpear@outlook.com>",
   "license": "MIT",
   "main": "index.js",
