@@ -6,6 +6,7 @@ module.exports = {
     // https://github.com/mysticatea/vue-eslint-parser#-options
     parser: '@babel/eslint-parser',
     ecmaVersion: 2020,
+    extraFileExtensions: ['.vue'],
     // ECMAScript modules 模式
     sourceType: 'module',
     ecmaFeatures: {
