@@ -17,9 +17,6 @@ pnpm add -D eslint @babel/core @babel/eslint-parser eslint-config-handpear
 ```js
 module.exports = {
   extends: ['handpear'],
-  rules: {
-    // 自定义你的规则
-  },
 };
 ```
 
@@ -37,12 +34,6 @@ module.exports = {
   parserOptions: {
     // 你的 tsconfig.json 路径
     project: './tsconfig.json',
-  },
-  rules: {
-    // 自定义你的规则
-
-    // 如果使用全局命名空间导致报错，则添加以下规则
-    'no-undef': ['off'],
   },
 };
 ```
@@ -62,9 +53,6 @@ pnpm add --save-dev eslint @babel/core @babel/eslint-parser @babel/preset-react@
 ```js
 module.exports = {
   extends: ['handpear', 'handpear/react'],
-  rules: {
-    // 自定义你的规则
-  },
 };
 ```
 
@@ -85,12 +73,6 @@ module.exports = {
     // 你的 tsconfig.json 路径
     project: './tsconfig.json',
   },
-  rules: {
-    // 自定义你的规则
-
-    // 如果使用全局命名空间导致报错，则添加以下规则
-    'no-undef': ['off'],
-  },
 };
 ```
 
@@ -107,9 +89,6 @@ pnpm add --save-dev eslint @babel/core @babel/eslint-parser vue-eslint-parser es
 ```js
 module.exports = {
   extends: ['handpear', 'handpear/vue'],
-  rules: {
-    // 自定义你的规则
-  },
 };
 ```
 
@@ -132,18 +111,11 @@ module.exports = {
     parser: {
       js: '@babel/eslint-parser',
       jsx: '@babel/eslint-parser',
-
       ts: '@typescript-eslint/parser',
       tsx: '@typescript-eslint/parser',
-
-      // Leave the template parser unspecified, so that it could be determined by `<script lang="...">`
     },
-  },
-  rules: {
-    // 自定义你的规则
-
-    // 如果使用全局命名空间导致报错，则添加以下规则
-    'no-undef': ['off'],
+    // 你的 tsconfig.json 路径
+    project: './tsconfig.json',
   },
 };
 ```

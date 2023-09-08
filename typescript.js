@@ -20,6 +20,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   rules: {
+    'no-undef': 'off',
     'react/sort-comp': 'off',
 
     /**
@@ -86,7 +87,7 @@ module.exports = {
     /**
      * 一致的类型导出语法
      */
-    '@typescript-eslint/consistent-type-exports': 'off',
+    '@typescript-eslint/consistent-type-exports': 'error',
     /**
      * 必须使用 import type 导入类型
      */
@@ -108,9 +109,15 @@ module.exports = {
     '@typescript-eslint/dot-notation': 'off',
     /**
      * 函数返回值必须与声明的类型一致
-     * @reason 返回值类型可以推导出来
      */
-    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-function-return-type': [
+      'warn',
+      {
+        allowExpressions: true,
+        allowTypedFunctionExpressions: true,
+        allowHigherOrderFunctions: true,
+      },
+    ],
     /**
      * 必须设置类的成员的可访问性
      * @reason 将不需要公开的成员设为私有的，可以增强代码的可理解性，对文档输出也很友好
@@ -131,40 +138,96 @@ module.exports = {
     'lines-between-class-members': 'off',
     '@typescript-eslint/lines-between-class-members': 'off',
     /**
-     * 指定类成员的排序规则
+     * 一致的成员声明顺序
      * @reason 优先级：
-     * 1. static > instance
-     * 2. field > constructor > method
+     * 1. static > constructor > instance
+     * 2. field > method
      * 3. public > protected > private
      */
     '@typescript-eslint/member-ordering': [
       'error',
       {
         default: [
+          'signature',
+          'call-signature',
+          'public-static-get',
+          'public-static-set',
+          'protected-static-get',
+          'protected-static-set',
+          'private-static-get',
+          'private-static-set',
+          '#private-static-get',
+          '#private-static-set',
+          'static-get',
+          'static-set',
           'public-static-field',
           'protected-static-field',
           'private-static-field',
+          '#private-static-field',
           'static-field',
           'public-static-method',
           'protected-static-method',
           'private-static-method',
+          '#private-static-method',
           'static-method',
+          'static-initialization',
+          'public-constructor',
+          'protected-constructor',
+          'private-constructor',
+          'constructor',
+          'public-decorated-get',
+          'public-decorated-set',
+          'protected-decorated-get',
+          'protected-decorated-set',
+          'private-decorated-get',
+          'private-decorated-set',
+          'public-instance-get',
+          'public-instance-set',
+          'protected-instance-get',
+          'protected-instance-set',
+          'private-instance-get',
+          'private-instance-set',
+          '#private-instance-get',
+          '#private-instance-set',
+          'public-abstract-get',
+          'public-abstract-set',
+          'protected-abstract-get',
+          'protected-abstract-set',
+          'public-get',
+          'public-set',
+          'protected-get',
+          'protected-set',
+          'private-get',
+          'private-set',
+          '#private-get',
+          '#private-set',
+          'instance-get',
+          'instance-set',
+          'abstract-get',
+          'abstract-set',
+          'decorated-get',
+          'decorated-set',
+          'get',
+          'set',
           'public-instance-field',
           'protected-instance-field',
           'private-instance-field',
+          '#private-instance-field',
+          'instance-field',
           'public-field',
           'protected-field',
           'private-field',
-          'instance-field',
+          '#private-field',
           'field',
-          'constructor',
           'public-instance-method',
           'protected-instance-method',
           'private-instance-method',
+          '#private-instance-method',
+          'instance-method',
           'public-method',
           'protected-method',
           'private-method',
-          'instance-method',
+          '#private-method',
           'method',
         ],
       },
@@ -440,7 +503,7 @@ module.exports = {
       },
     ],
     /**
-     *
+     * 已定义的变量必须使用
      */
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [

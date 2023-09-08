@@ -879,8 +879,9 @@ module.exports = {
     'prefer-numeric-literals': 'off',
     /**
      * 使用 Object.hasOwn() 而不是 Object.prototype.hasOwnProperty.call()
+     * @reason 新特性兼容性不佳
      */
-    'prefer-object-has-own': 'error',
+    'prefer-object-has-own': 'off',
     /**
      * 必须使用 ... 而不是 Object.assign，除非 Object.assign 的第一个参数是一个变量
      */
