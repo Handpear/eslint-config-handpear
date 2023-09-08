@@ -108,16 +108,10 @@ module.exports = {
     'dot-notation': 'off',
     '@typescript-eslint/dot-notation': 'off',
     /**
-     * 函数返回值必须与声明的类型一致
+     * 函数和类方法必须有显式返回类型
+     * @reason 可以自动推导返回类型
      */
-    '@typescript-eslint/explicit-function-return-type': [
-      'warn',
-      {
-        allowExpressions: true,
-        allowTypedFunctionExpressions: true,
-        allowHigherOrderFunctions: true,
-      },
-    ],
+    '@typescript-eslint/explicit-function-return-type': 'off',
     /**
      * 必须设置类的成员的可访问性
      * @reason 将不需要公开的成员设为私有的，可以增强代码的可理解性，对文档输出也很友好
