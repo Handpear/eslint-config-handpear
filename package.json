@@ -36,7 +36,7 @@
     "docs:build": "vitepress build --base /",
     "docs:preview": "vitepress preview",
     "build": "ts-node scripts/build.ts",
-    "release": "pnpm publish --no-git-checks",
+    "release": "pnpm build && pnpm publish --no-git-checks",
     "type:check": "tsc --noEmit --skipLibCheck",
     "clean:lib": "rimraf -g **/node_modules",
     "lint": "pnpm lint:eslint && pnpm lint:prettier",
