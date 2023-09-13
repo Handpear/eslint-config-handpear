@@ -3,15 +3,15 @@
  * https://github.com/Handpear/eslint-config-handpear.git
  *
  * 依赖版本：
- *   eslint ^8.48.0
+ *   eslint ^8.49.0
  *   eslint-plugin-react ^7.33.2
  *   eslint-plugin-vue ^9.17.0
- *   @babel/core ^7.22.15
+ *   @babel/core ^7.22.17
  *   @babel/eslint-parser ^7.22.15
  *   @babel/preset-react ^7.22.15
  *   vue-eslint-parser ^9.3.1
- *   @typescript-eslint/parser ^6.6.0
- *   @typescript-eslint/eslint-plugin ^6.6.0
+ *   @typescript-eslint/parser ^6.7.0
+ *   @typescript-eslint/eslint-plugin ^6.7.0
  *   typescript ^5.2.2
  *
  * 此文件是由脚本 scripts/build.ts 自动生成
@@ -23,6 +23,11 @@ module.exports = {
     },
   },
   plugins: ['react'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     /**
      * 布尔值类型的 propTypes 的 name 必须为 is 或 has 开头

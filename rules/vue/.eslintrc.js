@@ -2,17 +2,18 @@ module.exports = {
   extends: ['../base/.eslintrc.js'],
   parser: 'vue-eslint-parser',
   parserOptions: {
-    // 设置 js 的解析器为 @babel/eslint-parser
-    // https://github.com/mysticatea/vue-eslint-parser#-options
-    parser: '@babel/eslint-parser',
-    ecmaVersion: 2020,
-    extraFileExtensions: ['.vue'],
-    // ECMAScript modules 模式
+    parser: {
+      js: '@typescript-eslint/parser',
+      jsx: '@typescript-eslint/parser',
+      ts: '@typescript-eslint/parser',
+      tsx: '@typescript-eslint/parser',
+      '<template>': 'espree',
+    },
     sourceType: 'module',
+    extraFileExtensions: ['.vue'],
+    ecmaVersion: 2020,
     ecmaFeatures: {
-      // 不允许 return 语句出现在 global 环境下
       globalReturn: false,
-      // 开启全局 script 模式
       impliedStrict: true,
       jsx: true,
     },
@@ -22,4 +23,9 @@ module.exports = {
     allowImportExportEverywhere: false,
   },
   plugins: ['vue'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
