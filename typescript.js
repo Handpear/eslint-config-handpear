@@ -206,7 +206,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-redeclare': 'off',
-    '@typescript-eslint/no-redeclare': 'error',
+    '@typescript-eslint/no-redeclare': 'off',
     '@typescript-eslint/no-redundant-type-constituents': 'off',
     '@typescript-eslint/no-require-imports': 'error',
     'no-restricted-imports': 'off',
