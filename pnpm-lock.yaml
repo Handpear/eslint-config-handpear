@@ -14,9 +14,6 @@ devDependencies:
   '@babel/preset-react':
     specifier: ^7.22.15
     version: 7.22.15(@babel/core@7.22.17)
-  '@types/doctrine':
-    specifier: ^0.0.6
-    version: 0.0.6
   '@types/eslint':
     specifier: ^8.44.2
     version: 8.44.2
@@ -32,9 +29,6 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.7.0
     version: 6.7.0(eslint@8.49.0)(typescript@5.2.2)
-  doctrine:
-    specifier: ^3.0.0
-    version: 3.0.0
   eslint:
     specifier: ^8.49.0
     version: 8.49.0
@@ -1089,10 +1083,6 @@ packages:
     dependencies:
       '@tufjs/canonical-json': 1.0.0
       minimatch: 9.0.3
-    dev: true
-
-  /@types/doctrine@0.0.6:
-    resolution: {integrity: sha512-KlEqPtaNBHBJ2/fVA4yLdD0Tc8zw34pKU4K5SHBIEwtLJ8xxumIC1xeG+4S+/9qhVj2MqC7O3Ld8WvDG4HqlgA==}
     dev: true
 
   /@types/eslint@8.44.2:

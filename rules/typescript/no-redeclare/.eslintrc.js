@@ -1,5 +1,8 @@
 module.exports = {
   rules: {
-    '@typescript-eslint/no-redeclare': 'off',
+    /**
+     * 禁止重复定义变量
+     */
+    '@typescript-eslint/no-redeclare': 'error',
   },
 };

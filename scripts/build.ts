@@ -1,173 +1,170 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 /// <reference types="../typings/global" />
+/// <reference types="../typings/rule" />
 
 import fs from 'node:fs';
 import path from 'node:path';
-import doctrine from 'doctrine';
 import prettier, { type RequiredOptions } from 'prettier';
 import prettierrc from '../.prettierrc.json';
-import { buildEslintrcMeta, type Namespace, NAMESPACE_CONFIG, NAMESPACES } from '../config';
+import pkg from '../package.json';
 
-// const DEBUT_WHITELIST = ['jsx-curly-brace-presence'];
+type ConfigName = keyof typeof ruleConfigs;
+const rulesDir = '../rules';
+const ruleConfigs = {
+  base: {
+    exampleExtension: 'js',
+    domain: '',
+    pluginName: '',
+  },
+  typescript: {
+    exampleExtension: 'ts',
+    domain: '@typescript-eslint/',
+    pluginName: '@typescript-eslint/eslint-plugin',
+  },
+  react: {
+    exampleExtension: 'js',
+    domain: 'react/',
+    pluginName: 'eslint-plugin-react',
+  },
+  vue: {
+    exampleExtension: 'vue',
+    domain: 'vue/',
+    pluginName: 'eslint-plugin-vue',
+  },
+} as const;
 
-class Builder {
-  private namespace: Namespace = NAMESPACES[0]!;
-  /** 插件的 meta 信息 */
-  private ruleMetaMap: Record<string, RuleDocs> = {};
-  /** 当前 namespace 的规则列表 */
-  private ruleList: Rule[] = [];
-  /** 当前 namespace 的所有规则合并后的文本，包含注释 */
-  private rulesContent = '';
-  /** 插件初始配置的内容，如 rules/react/.eslintrc.js */
-  private initialEslintrcContent = '';
-  /** build base 时，暂存当前 ruleConfig，供后续继承用 */
-  private baseRuleConfig: Record<string, Rule> = {};
+/** 写入 eslintrc 中的元信息 */
+const getESLintrcMeta = () => {
+  return `
+/**
+ * ${pkg.description}
+ * ${pkg.homepage}
+ *
+ * 依赖版本：
+ *   ${[
+   'eslint',
+   'eslint-plugin-react',
+   'eslint-plugin-vue',
+   '@babel/core',
+   '@babel/eslint-parser',
+   '@babel/preset-react',
+   'vue-eslint-parser',
+   '@typescript-eslint/parser',
+   '@typescript-eslint/eslint-plugin',
+   'typescript',
+ ]
+   .map((key) => `${key} ${(pkg.devDependencies as Record<string, string>)[key]}`)
+   .join('\n *   ')}
+ *
+ * 此文件是由脚本 scripts/build.ts 自动生成
+ */
+`;
+};
 
-  public async build(namespace: Namespace) {
-    this.namespace = namespace;
-    this.ruleMetaMap = this.getRuleMetaMap();
-    this.ruleList = await this.getRuleList();
-    this.rulesContent = this.getRulesContent();
-    this.initialEslintrcContent = this.getInitialEslintrc();
-    this.buildEslintrc();
+/** 获取规则集合列表 */
+const getRuleModuleList = (configName: ConfigName) => {
+  switch (configName) {
+    case 'typescript':
+      return Object.entries<Rules.RuleModule>(require(ruleConfigs[configName].pluginName).rules);
+    case 'react':
+      return Object.entries<Rules.RuleModule>(require(ruleConfigs[configName].pluginName).rules);
+    case 'vue':
+      return Object.entries<Rules.RuleModule>(require(ruleConfigs[configName].pluginName).rules);
+
+    default:
+      return Array.from<[string, Rules.RuleModule]>(require('eslint/use-at-your-own-risk').builtinRules.entries());
   }
+};
 
-  /** 获取插件的 meta 信息 */
-  private getRuleMetaMap() {
-    const { domain, pluginName } = NAMESPACE_CONFIG[this.namespace];
-    const ruleEntries = pluginName
-      ? Object.entries<RuleMeta>(require(pluginName).rules)
-      : Array.from<[string, RuleMeta]>(require('eslint/use-at-your-own-risk').builtinRules.entries());
+/** 获取自定义规则列表 */
+const getCustomRuleConfigList = (configName: ConfigName) => {
+  const ruleModuleList = getRuleModuleList(configName);
+  const rulesConfigDirs = fs.readdirSync(path.resolve(__dirname, rulesDir, configName));
+  const customRuleConfigList = rulesConfigDirs
+    .filter((rule) => fs.lstatSync(path.resolve(__dirname, rulesDir, configName, rule)).isDirectory())
+    .map((rule) => getCustomRuleConfig(configName, ruleModuleList, rule));
 
-    return ruleEntries.reduce<Record<string, RuleDocs>>((prev, [ruleName, ruleValue]) => {
-      const fullRuleName = domain + ruleName;
-      const meta = ruleValue.meta;
-      prev[fullRuleName] = {
-        fixable: meta.fixable === 'code',
-        extendsBaseRule:
-          // meta.docs.extendsBaseRule 若为 string，则表示继承的规则，若为 true，则提取继承的规则的名称
-          meta.docs.extensionRule === true || meta.docs.extendsBaseRule === true
-            ? ruleName.replace(NAMESPACE_CONFIG[this.namespace].domain, '')
-            : meta.docs.extendsBaseRule || '',
-        requiresTypeChecking: meta.docs.requiresTypeChecking ?? false,
-      };
-      return prev;
-    }, {});
-  }
+  return customRuleConfigList;
+};
 
-  /** 获取规则列表，根据字母排序 */
-  private async getRuleList() {
-    const ruleList = await Promise.all(
-      fs
-        .readdirSync(path.resolve(__dirname, '../rules', this.namespace))
-        .filter((ruleName) => fs.lstatSync(path.resolve(__dirname, '../rules', this.namespace, ruleName)).isDirectory())
-        // .filter((ruleName) => DEBUT_WHITELIST.includes(ruleName))
-        .map((ruleName) => this.getRule(ruleName)),
-    );
+/** 解析单条自定义规则 */
+const getCustomRuleConfig = (
+  configName: ConfigName,
+  ruleModuleList: ReturnType<typeof getRuleModuleList>,
+  ruleName: string,
+) => {
+  const filePath = path.resolve(__dirname, rulesDir, configName, ruleName, '.eslintrc.js');
+  const fileModule = require(filePath);
+  const fullRuleName = ruleConfigs[configName].domain + ruleName;
+  const ruleModule = ruleModuleList.find((ruleset) => ruleset[0] === ruleName)?.[1];
+  const rule: Rules.Rule = {
+    ...ruleConfigs[configName],
+    name: fullRuleName,
+    value: fileModule.rules[fullRuleName],
+    url: ruleModule?.meta.docs.url || '',
+    description: ruleModule?.meta.docs.description || '',
+  };
 
-    return ruleList;
-  }
-
-  /** 解析单条规则为一个规则对象 */
-  private async getRule(ruleName: string) {
-    const filePath = path.resolve(__dirname, '../rules', this.namespace, ruleName, '.eslintrc.js');
-    const fileModule = require(filePath);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const fullRuleName = NAMESPACE_CONFIG[this.namespace].domain + ruleName;
-    const comments = /\/\*\*.*\*\//gms.exec(fileContent);
-    const rule: Rule = {
-      name: fullRuleName,
-      value: fileModule.rules[fullRuleName],
-      description: '',
-      reason: '',
-      domain: NAMESPACE_CONFIG[this.namespace].domain,
-      ...(this.ruleMetaMap[fullRuleName] || { fixable: false, extendsBaseRule: '', requiresTypeChecking: false }),
-    };
-    if (comments !== null) {
-      // 通过 doctrine 解析注释
-      const commentsAST = doctrine.parse(comments[0], { unwrap: true });
-      // 将注释体解析为 description
-      rule.description = commentsAST.description;
-      // 解析其他的注释内容，如 @reason
-      rule.reason = commentsAST.tags.find(({ title }) => title === 'reason')?.description ?? '';
+  // 判断继承的基础规则
+  if (ruleModule && configName === 'typescript') {
+    if ((ruleModule.meta as Rules.Typescript.Meta).docs.extendsBaseRule === true) {
+      rule.extendedBaseRule = ruleName;
     }
-    // 若没有描述，并且有继承的规则，则使用继承的规则的描述
-    if (!rule.description && rule.extendsBaseRule) {
-      rule.description = this.baseRuleConfig[rule.extendsBaseRule]?.description || '';
+  }
+  // 判断继承的基础规则
+  if (ruleModule && configName === 'vue') {
+    if ((ruleModule.meta as Rules.Vue.Meta).docs.extensionRule === true) {
+      rule.extendedBaseRule = ruleName;
     }
-    // 若没有原因，并且有继承的规则，并且本规则的配置项与继承的规则的配置项一致，则使用继承的规则的原因
-    try {
-      if (
-        !rule.reason &&
-        rule.extendsBaseRule &&
-        JSON.stringify(rule.value) === JSON.stringify(this.baseRuleConfig[rule.extendsBaseRule]?.value)
-      ) {
-        rule.reason = this.baseRuleConfig[rule.extendsBaseRule]?.reason || '';
-      }
-    } catch (e) {}
-
-    return rule;
   }
 
-  /** 获取插件初始配置的内容 */
-  private getInitialEslintrc() {
-    const initialEslintrcPath = path.resolve(__dirname, `../rules/${this.namespace}/.eslintrc.js`);
-    if (!fs.existsSync(initialEslintrcPath)) {
-      return '';
+  return rule;
+};
+
+/** 解析规则内容 */
+const getRuleContent = (configName: ConfigName) => {
+  const customRuleConfigList = getCustomRuleConfigList(configName);
+  const contentList = customRuleConfigList.map((customRuleConfig) => {
+    // 若继承自基础规则，并且是 ts 规则，则需要先关闭基础规则
+    const content: string[] = [];
+    if (configName === 'typescript' && customRuleConfig.extendedBaseRule) {
+      content.push(`'${customRuleConfig.extendedBaseRule}': 'off'`);
     }
-    return fs.readFileSync(initialEslintrcPath, 'utf-8');
-  }
+    content.push(`'${customRuleConfig.name}': ${JSON.stringify(customRuleConfig.value, null, 4)},`);
 
-  /** 获取当前 namespace 的所有规则合并后的文本，包含注释 */
-  private getRulesContent() {
-    return this.ruleList
-      .map((rule) => {
-        let content = ['\n/**', ...rule.description.split('\n').map((line) => ` * ${line}`)];
-        if (rule.reason) {
-          content = [
-            ...content,
-            ...rule.reason.split('\n').map((line, index) => (index === 0 ? ` * @reason ${line}` : ` * ${line}`)),
-          ];
-        }
-        content.push(' */');
-        // 若继承自基础规则，并且是 ts 规则，则需要先关闭基础规则
-        const extendsBaseRule = this.ruleMetaMap[rule.name]?.extendsBaseRule;
-        if (extendsBaseRule && this.namespace === 'typescript') {
-          content.push(`'${extendsBaseRule}': 'off',`);
-        }
-        content.push(`'${rule.name}': ${JSON.stringify(rule.value, null, 4)},`);
-        return content.join('\n    ');
-      })
-      .join('');
-  }
+    return content.join(',');
+  });
 
-  /** 写入各插件的 eslintrc 文件 */
-  private buildEslintrc() {
-    const eslintrcContent =
-      buildEslintrcMeta() +
-      this.initialEslintrcContent
-        // 去掉 extends
-        .replace(/extends:.*],/, '')
-        // 将 rulesContent 写入 rules
-        .replace(/(,\s*rules: {([\s\S]*?)})?,\s*};/, (_match, _p1, p2) => {
-          const rules = p2 ? `${p2}${this.rulesContent}` : this.rulesContent;
-          return `,rules:{${rules}}};`;
-        });
+  return contentList.join('');
+};
 
-    this.writeWithPrettier(path.resolve(__dirname, `../${this.namespace}.js`), eslintrcContent);
-  }
+/** 格式化写入 */
+const resolveFormatWrite = async (filePath: string, content: string, parser = 'babel') => {
+  const formatedContent = await prettier.format(content, { ...(prettierrc as Partial<RequiredOptions>), parser });
+  fs.writeFileSync(filePath, formatedContent, 'utf-8');
+};
 
-  /** 经过 Prettier 格式化后写入文件 */
-  private async writeWithPrettier(filePath: string, content: string, parser = 'babel') {
-    const formatedContent = await prettier.format(content, { ...(prettierrc as Partial<RequiredOptions>), parser });
-    fs.writeFileSync(filePath, formatedContent, 'utf-8');
-  }
-}
+/** 获取插件初始配置的内容 */
+const getInitialESLintrc = (configName: ConfigName) => {
+  const initialEslintrcPath = path.resolve(__dirname, `${rulesDir}/${configName}/.eslintrc.js`);
+  if (!fs.existsSync(initialEslintrcPath)) return '';
+  return fs.readFileSync(initialEslintrcPath, 'utf-8');
+};
 
-main();
-async function main() {
-  const builder = new Builder();
-  for (const namespace of NAMESPACES) {
-    await builder.build(namespace);
-  }
-}
+/** 构建 eslintrc 文件 */
+const buildESLintrc = (configName: ConfigName) => {
+  const eslintrcMeta = getESLintrcMeta();
+  const initialESLintrc = getInitialESLintrc(configName).replace(/extends:.*],/, '');
+  const ruleContent = getRuleContent(configName);
+  const content =
+    eslintrcMeta +
+    initialESLintrc.replace(/(,\s*rules: {([\s\S]*?)})?,\s*};/, (match, p1, p2) => {
+      const rules = p2 ? `${p2}${ruleContent}` : ruleContent;
+      return `,rules:{ ${rules} } };`;
+    });
+
+  resolveFormatWrite(path.resolve(__dirname, `../${configName}.js`), content);
+};
+
+Object.keys(ruleConfigs).forEach((configName) => {
+  buildESLintrc(configName as ConfigName);
+});
