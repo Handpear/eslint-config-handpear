@@ -1,4 +1,13 @@
-规则待编辑
-iframe-missing-sandbox
+# [iframe-missing-sandbox](https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/iframe-missing-sandbox.md)
 
-<<< @/rules/react/iframe-missing-sandbox/good.js
+## 配置
+
+<<< ./.eslintrc.js
+
+## 错误示例
+
+<<< ./bad.js
+
+## 正确示例
+
+<<< ./good.js

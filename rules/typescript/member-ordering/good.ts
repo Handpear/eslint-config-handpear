@@ -7,13 +7,14 @@ class Foo2 {
   private static getFoo3() {
     return Foo2.foo3;
   }
-  public bar1 = 'bar1';
-  protected bar2 = 'bar2';
-  private bar3 = 'bar3';
   public constructor() {
     console.log(Foo2.getFoo3());
     console.log(this.getBar3());
   }
+  public bar1 = 'bar1';
+  protected bar2 = 'bar2';
+  private bar3 = 'bar3';
+
   public getBar1() {}
   protected getBar2() {}
   private getBar3() {

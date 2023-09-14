@@ -1,12 +1,12 @@
 {
   "root": true,
   "extends": ["./index.js", "./typescript.js"],
-  "rules": {
-    "no-undef": ["off"]
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+  "rules": {
+    "@typescript-eslint/no-require-imports": ["off"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/no-explicit-any": ["off"]
   }
 }
