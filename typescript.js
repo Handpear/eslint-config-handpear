@@ -310,6 +310,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/unbound-method': 'off',
-    '@typescript-eslint/unified-signatures': 'error',
+    '@typescript-eslint/unified-signatures': 'off',
   },
 };

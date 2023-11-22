@@ -1,6 +1,5 @@
 {
   "printWidth": 120,
   "singleAttributePerLine": true,
-  "singleQuote": true,
   "vueIndentScriptAndStyle": true
 }
