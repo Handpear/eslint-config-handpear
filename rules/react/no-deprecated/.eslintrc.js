@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用已废弃的 api
      */
-    'react/no-deprecated': 'error',
+    "react/no-deprecated": "error",
   },
 };

@@ -1,4 +1,3 @@
-
 # [no-deprecated-slot-scope-attribute](https://eslint.vuejs.org/rules/no-deprecated-slot-scope-attribute.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

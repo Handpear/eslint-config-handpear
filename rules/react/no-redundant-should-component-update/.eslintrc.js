@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止在 React.PureComponent 中使用 shouldComponentUpdate
      */
-    'react/no-redundant-should-component-update': 'error',
+    "react/no-redundant-should-component-update": "error",
   },
 };

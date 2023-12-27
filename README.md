@@ -16,7 +16,7 @@ pnpm add -D eslint @babel/core @babel/eslint-parser eslint-config-handpear
 
 ```js
 module.exports = {
-  extends: ['handpear'],
+  extends: ["handpear"],
 };
 ```
 
@@ -31,10 +31,10 @@ pnpm add --save-dev eslint typescript @typescript-eslint/parser @typescript-esli
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/typescript'],
+  extends: ["handpear", "handpear/typescript"],
   parserOptions: {
     // 你的 tsconfig.json 路径
-    project: './tsconfig.json',
+    project: "./tsconfig.json",
   },
 };
 ```
@@ -54,7 +54,7 @@ pnpm add --save-dev eslint @babel/core @babel/eslint-parser @babel/preset-react@
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/react'],
+  extends: ["handpear", "handpear/react"],
 };
 ```
 
@@ -71,10 +71,10 @@ pnpm add --save-dev eslint typescript @typescript-eslint/parser @typescript-esli
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/typescript', 'handpear/react'],
+  extends: ["handpear", "handpear/typescript", "handpear/react"],
   parserOptions: {
     // 你的 tsconfig.json 路径
-    project: './tsconfig.json',
+    project: "./tsconfig.json",
   },
 };
 ```
@@ -92,7 +92,7 @@ pnpm add --save-dev eslint @babel/core @babel/eslint-parser vue-eslint-parser es
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/vue'],
+  extends: ["handpear", "handpear/vue"],
 };
 ```
 
@@ -110,10 +110,10 @@ pnpm add --save-dev @babel/core @babel/eslint-parser @typescript-eslint/eslint-p
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/typescript', 'handpear/vue'],
+  extends: ["handpear", "handpear/typescript", "handpear/vue"],
   parserOptions: {
     // 你的 tsconfig.json 路径
-    project: './tsconfig.json',
+    project: "./tsconfig.json",
   },
 };
 ```

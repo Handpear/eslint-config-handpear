@@ -1,4 +1,3 @@
-
 # [no-watch-after-await](https://eslint.vuejs.org/rules/no-watch-after-await.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

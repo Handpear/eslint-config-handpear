@@ -1,5 +1,5 @@
 <script>
-  import Foo from 'components/Foo.vue';
+  import Foo from "components/Foo.vue";
 
   export default {
     components: {

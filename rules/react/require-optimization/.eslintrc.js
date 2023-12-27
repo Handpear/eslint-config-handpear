@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 组件必须有 shouldComponentUpdate
      */
-    'react/require-optimization': 'off',
+    "react/require-optimization": "off",
   },
 };

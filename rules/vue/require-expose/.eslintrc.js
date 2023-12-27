@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 必须导出 expose
      */
-    'vue/require-expose': 'off',
+    "vue/require-expose": "off",
   },
 };

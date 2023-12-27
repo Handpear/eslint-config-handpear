@@ -1,1 +1,1 @@
-<App prop={'foo'}>{'Hello World'}</App>;
+<App prop={"foo"}>{"Hello World"}</App>;

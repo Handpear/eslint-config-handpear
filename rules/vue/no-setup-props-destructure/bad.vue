@@ -6,7 +6,7 @@
       });
 
       return () => {
-        return h('div', count); // not going to update
+        return h("div", count); // not going to update
       };
     },
   };

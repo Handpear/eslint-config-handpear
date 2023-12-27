@@ -1,2 +1,2 @@
-if (typeof foo === 'numbe') {
+if (typeof foo === "numbe") {
 }

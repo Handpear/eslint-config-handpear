@@ -23,10 +23,10 @@ pnpm add --save-dev eslint typescript @typescript-eslint/parser @typescript-esli
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/typescript'],
+  extends: ["handpear", "handpear/typescript"],
   parserOptions: {
     // 你的 tsconfig.json 路径
-    project: './tsconfig.json',
+    project: "./tsconfig.json",
   },
 };
 ```

@@ -1,9 +1,9 @@
 <script>
   export default {
-    emits: ['good'],
+    emits: ["good"],
     methods: {
       foo() {
-        this.$emit('good');
+        this.$emit("good");
       },
     },
   };

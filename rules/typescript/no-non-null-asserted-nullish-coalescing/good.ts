@@ -1,2 +1,2 @@
 let foo2;
-foo2.bar ?? '';
+foo2.bar ?? "";

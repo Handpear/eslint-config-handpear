@@ -1,4 +1,3 @@
-
 # [no-v-text-v-html-on-component](https://eslint.vuejs.org/rules/no-v-text-v-html-on-component.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

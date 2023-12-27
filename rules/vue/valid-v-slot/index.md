@@ -1,4 +1,3 @@
-
 # [valid-v-slot](https://eslint.vuejs.org/rules/valid-v-slot.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

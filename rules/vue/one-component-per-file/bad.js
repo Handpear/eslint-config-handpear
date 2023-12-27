@@ -1,7 +1,7 @@
-Vue.component('TodoList', {
+Vue.component("TodoList", {
   // ...
 });
 
-Vue.component('TodoItem', {
+Vue.component("TodoItem", {
   // ...
 });

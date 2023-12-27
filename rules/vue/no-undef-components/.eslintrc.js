@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用未定义的组件
      */
-    'vue/no-undef-components': 'off',
+    "vue/no-undef-components": "off",
   },
 };

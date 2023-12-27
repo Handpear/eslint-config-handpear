@@ -1,4 +1,3 @@
-
 # [prefer-true-attribute-shorthand](https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

@@ -1,4 +1,3 @@
-
 # [v-on-style](https://eslint.vuejs.org/rules/v-on-style.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

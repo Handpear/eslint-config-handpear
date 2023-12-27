@@ -1,3 +1,3 @@
 function Foo() {
-  return <Bar.Provider value={{ foo: 'bar' }}>Bar</Bar.Provider>;
+  return <Bar.Provider value={{ foo: "bar" }}>Bar</Bar.Provider>;
 }

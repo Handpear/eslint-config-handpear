@@ -1,4 +1,3 @@
-
 # [no-parsing-error](https://eslint.vuejs.org/rules/no-parsing-error.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

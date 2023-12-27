@@ -1,4 +1,3 @@
-
 # [prefer-import-from-vue](https://eslint.vuejs.org/rules/prefer-import-from-vue.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

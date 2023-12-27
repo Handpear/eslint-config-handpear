@@ -1,1 +1,1 @@
-const foo = new Symbol('foo');
+const foo = new Symbol("foo");

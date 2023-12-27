@@ -1,4 +1,3 @@
-
 # [no-textarea-mustache](https://eslint.vuejs.org/rules/no-textarea-mustache.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

@@ -16,7 +16,7 @@
     },
     methods: {
       openModal() {
-        this.value = 'test';
+        this.value = "test";
       },
     },
   };

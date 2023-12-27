@@ -1,2 +1,2 @@
 const foo2 = 1;
-const bar2 = '';
+const bar2 = "";

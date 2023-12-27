@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用不安全的 optional chaining
      */
-    'no-unsafe-optional-chaining': 'error',
+    "no-unsafe-optional-chaining": "error",
   },
 };

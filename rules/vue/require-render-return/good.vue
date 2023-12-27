@@ -1,7 +1,7 @@
 <script>
   export default {
     render(h) {
-      return h('div', 'hello');
+      return h("div", "hello");
     },
   };
 </script>

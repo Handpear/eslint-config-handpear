@@ -1,1 +1,1 @@
-import Animal from './Animal';
+import Animal from "./Animal";

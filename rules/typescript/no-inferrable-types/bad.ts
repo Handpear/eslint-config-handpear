@@ -1,2 +1,2 @@
 let foo1: number = 1;
-let bar1: string = '';
+let bar1: string = "";

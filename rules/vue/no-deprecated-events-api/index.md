@@ -1,4 +1,3 @@
-
 # [no-deprecated-events-api](https://eslint.vuejs.org/rules/no-deprecated-events-api.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

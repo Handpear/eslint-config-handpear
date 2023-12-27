@@ -1,2 +1,2 @@
-new RegExp('abc');
-new RegExp('\\.', 'g');
+new RegExp("abc");
+new RegExp("\\.", "g");

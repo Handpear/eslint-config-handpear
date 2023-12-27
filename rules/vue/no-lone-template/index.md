@@ -1,4 +1,3 @@
-
 # [no-lone-template](https://eslint.vuejs.org/rules/no-lone-template.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

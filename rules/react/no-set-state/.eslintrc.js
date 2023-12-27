@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用 setState
      */
-    'react/no-set-state': 'off',
+    "react/no-set-state": "off",
   },
 };

@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-handpear",
   "description": "specific rules for ESLint",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "handpear<handpear@outlook.com>",
   "license": "MIT",
   "main": "index.js",
@@ -41,7 +41,7 @@
     "clean:lib": "rimraf -g **/node_modules",
     "lint": "pnpm lint:eslint && pnpm lint:prettier",
     "lint:eslint": "eslint --ext \"**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}\" --ignore-pattern \"bad.*\" .",
-    "lint:prettier": "prettier --l \"**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,css,less,scss,json,vue,html,md}\"",
+    "lint:prettier": "prettier --write .",
     "lib:up": "taze -I -r --exclude pnpm,typescript,vitepress"
   },
   "devDependencies": {

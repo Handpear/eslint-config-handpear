@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 不允许枚举同时具有数字和字符串成员
      */
-    '@typescript-eslint/no-mixed-enums': 'off',
+    "@typescript-eslint/no-mixed-enums": "off",
   },
 };

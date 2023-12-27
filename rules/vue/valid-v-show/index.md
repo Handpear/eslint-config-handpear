@@ -1,4 +1,3 @@
-
 # [valid-v-show](https://eslint.vuejs.org/rules/valid-v-show.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

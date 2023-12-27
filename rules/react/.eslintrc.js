@@ -1,14 +1,14 @@
 module.exports = {
-  extends: ['../base/.eslintrc.js'],
+  extends: ["../base/.eslintrc.js"],
   parserOptions: {
     babelOptions: {
-      presets: ['@babel/preset-react'],
+      presets: ["@babel/preset-react"],
     },
   },
-  plugins: ['react'],
+  plugins: ["react"],
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 };

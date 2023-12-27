@@ -1,4 +1,3 @@
-
 # [require-component-is](https://eslint.vuejs.org/rules/require-component-is.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

@@ -1,3 +1,3 @@
 /abc/;
 /\./g;
-new RegExp(prefix + 'abc');
+new RegExp(prefix + "abc");

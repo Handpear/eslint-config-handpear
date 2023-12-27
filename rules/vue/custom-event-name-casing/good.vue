@@ -5,8 +5,8 @@
   export default {
     methods: {
       onClick() {
-        this.$emit('myEvent');
-        this.$emit('update:myProp', myProp);
+        this.$emit("myEvent");
+        this.$emit("update:myProp", myProp);
       },
     },
   };

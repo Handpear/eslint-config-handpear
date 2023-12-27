@@ -1,4 +1,3 @@
-
 # [define-macros-order](https://eslint.vuejs.org/rules/define-macros-order.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

@@ -3,13 +3,13 @@ module.exports = {
     /**
      * 已定义的变量必须使用
      */
-    'no-unused-vars': [
-      'error',
+    "no-unused-vars": [
+      "error",
       {
-        vars: 'all',
-        args: 'none',
+        vars: "all",
+        args: "none",
         ignoreRestSiblings: false,
-        caughtErrors: 'none',
+        caughtErrors: "none",
       },
     ],
   },

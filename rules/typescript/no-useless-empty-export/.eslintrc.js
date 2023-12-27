@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止导出空对象
      */
-    '@typescript-eslint/no-useless-empty-export': 'off',
+    "@typescript-eslint/no-useless-empty-export": "off",
   },
 };

@@ -1,4 +1,3 @@
-
 # [no-export-in-script-setup](https://eslint.vuejs.org/rules/no-export-in-script-setup.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

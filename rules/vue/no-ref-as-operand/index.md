@@ -1,4 +1,3 @@
-
 # [no-ref-as-operand](https://eslint.vuejs.org/rules/no-ref-as-operand.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

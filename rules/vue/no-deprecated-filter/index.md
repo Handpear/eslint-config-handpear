@@ -1,4 +1,3 @@
-
 # [no-deprecated-filter](https://eslint.vuejs.org/rules/no-deprecated-filter.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

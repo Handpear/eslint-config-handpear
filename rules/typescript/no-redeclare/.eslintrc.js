@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止重复定义变量
      */
-    '@typescript-eslint/no-redeclare': 'off',
+    "@typescript-eslint/no-redeclare": "off",
   },
 };

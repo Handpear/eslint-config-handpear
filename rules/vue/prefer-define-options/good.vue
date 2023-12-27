@@ -1,4 +1,4 @@
 <script setup>
   /* ✓ GOOD */
-  defineOptions({ name: 'Foo' });
+  defineOptions({ name: "Foo" });
 </script>

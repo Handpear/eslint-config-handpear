@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 必须在构造函数中初始化 state
      */
-    'react/state-in-constructor': 'off',
+    "react/state-in-constructor": "off",
   },
 };

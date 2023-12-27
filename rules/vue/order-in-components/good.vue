@@ -1,12 +1,12 @@
 <script>
   export default {
-    name: 'World',
+    name: "World",
     props: {
       bar: Number,
     },
     data() {
       return {
-        foo: 'Hello',
+        foo: "Hello",
       };
     },
   };

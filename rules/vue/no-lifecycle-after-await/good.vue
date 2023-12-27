@@ -1,5 +1,5 @@
 <script>
-  import { onMounted } from 'vue';
+  import { onMounted } from "vue";
   export default {
     async setup() {
       onMounted(() => {});

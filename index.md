@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: 'ESlint Config'
-  text: 'Specific Rules For ESLint'
+  name: "ESlint Config"
+  text: "Specific Rules For ESLint"
   tagline: 一套先进的适用于 React/Vue/Typescript 项目的 ESLint 配置规范
   actions:
     - theme: brand

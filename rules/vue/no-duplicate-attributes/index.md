@@ -1,4 +1,3 @@
-
 # [no-duplicate-attributes](https://eslint.vuejs.org/rules/no-duplicate-attributes.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

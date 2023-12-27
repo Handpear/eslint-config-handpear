@@ -14,6 +14,10 @@ rules/base/no-irregular-whitespace/bad.js
 rules/base/no-labels/bad.js
 rules/base/no-sequences/bad.js
 rules/base/no-useless-rename/bad.js
+rules/base/no-unsafe-negation/bad.js
+
 rules/react/jsx-fragments/bad.js
 rules/react/self-closing-comp/bad.js
+
+rules/vue/html-self-closing/bad.vue
 rules/vue/no-irregular-whitespace/bad.vue

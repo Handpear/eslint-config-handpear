@@ -5,7 +5,7 @@ module.exports = {
      * @reason https://en.wikipedia.org/wiki/Cyclomatic_complexity
      */
     complexity: [
-      'error',
+      "error",
       {
         max: 20,
       },

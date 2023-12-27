@@ -1,4 +1,3 @@
-
 # [require-toggle-inside-transition](https://eslint.vuejs.org/rules/require-toggle-inside-transition.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

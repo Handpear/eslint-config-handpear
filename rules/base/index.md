@@ -22,6 +22,6 @@ pnpm add --save-dev eslint @babel/core @babel/eslint-parser eslint-config-handpe
 
 ```js
 module.exports = {
-  extends: ['handpear'],
+  extends: ["handpear"],
 };
 ```

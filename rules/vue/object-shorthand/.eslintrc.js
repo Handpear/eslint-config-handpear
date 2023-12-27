@@ -1,5 +1,5 @@
 module.exports = {
   rules: {
-    'vue/object-shorthand': 'off',
+    "vue/object-shorthand": "off",
   },
 };

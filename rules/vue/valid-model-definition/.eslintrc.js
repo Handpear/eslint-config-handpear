@@ -3,6 +3,6 @@ module.exports = {
     /**
      * model 的属性名必须合法
      */
-    'vue/valid-model-definition': 'error',
+    "vue/valid-model-definition": "error",
   },
 };

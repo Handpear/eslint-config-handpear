@@ -1,17 +1,17 @@
-import { readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
-import type { PluginOption } from 'vite';
-import type { DefaultTheme } from 'vitepress';
-import { type AutoSidebarOptions, type AutoSidebarUserOptions, resolveOptions } from './options';
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
+import type { PluginOption } from "vite";
+import type { DefaultTheme } from "vitepress";
+import { type AutoSidebarOptions, type AutoSidebarUserOptions, resolveOptions } from "./options";
 
 export function AutoSidebar(userOptions: AutoSidebarUserOptions = {}): PluginOption {
   const options = resolveOptions(userOptions);
 
   return {
-    name: 'auto-sidebar',
+    name: "auto-sidebar",
     configureServer: ({ watcher, restart }) => {
-      watcher.add(options.extensions.map((e) => `*.${e}`)).on('all', (event) => {
-        if (event !== 'change') restart();
+      watcher.add(options.extensions.map((e) => `*.${e}`)).on("all", (event) => {
+        if (event !== "change") restart();
       });
     },
     config(config) {
@@ -54,18 +54,18 @@ function createSideBarItems(
         const hasIndexFile = options.extensions.some((ext) => dirs.some((d) => `index.${ext}` === d));
         result.push({
           text: node,
-          link: hasIndexFile ? '/' + [options.root, ...reset, node, ''].join('/') : '',
+          link: hasIndexFile ? "/" + [options.root, ...reset, node, ""].join("/") : "",
           items: items.filter((item) => item.text !== node),
         });
       }
     } else {
       // * file
-      const extensions = node.split('.').at(-1);
+      const extensions = node.split(".").at(-1);
       if (extensions && options.extensions.includes(extensions)) {
-        const name = node.replace(`.${extensions}`, '');
+        const name = node.replace(`.${extensions}`, "");
         const item: DefaultTheme.SidebarItem = {
-          text: name === 'index' ? reset.at(-1) || options.root : name,
-          link: '/' + (reset.length ? [options.root, ...reset, name] : [options.root, name]).join('/'),
+          text: name === "index" ? reset.at(-1) || options.root : name,
+          link: "/" + (reset.length ? [options.root, ...reset, name] : [options.root, name]).join("/"),
         };
         result.push(item);
       }

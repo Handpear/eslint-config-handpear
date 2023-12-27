@@ -3,6 +3,6 @@ module.exports = {
     /**
      * props 必须有注释
      */
-    'vue/require-prop-comment': 'off',
+    "vue/require-prop-comment": "off",
   },
 };

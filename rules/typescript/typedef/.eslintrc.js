@@ -3,8 +3,8 @@ module.exports = {
     /**
      * interface 和 type 定义时必须声明成员的类型
      */
-    '@typescript-eslint/typedef': [
-      'error',
+    "@typescript-eslint/typedef": [
+      "error",
       {
         arrayDestructuring: false,
         arrowParameter: false,

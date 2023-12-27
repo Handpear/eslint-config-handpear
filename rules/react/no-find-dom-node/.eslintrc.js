@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用 findDOMNode
      */
-    'react/no-find-dom-node': 'error',
+    "react/no-find-dom-node": "error",
   },
 };

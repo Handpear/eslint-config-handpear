@@ -1,5 +1,5 @@
 <script>
-  const foo = '　';
+  const foo = "　";
   const bar = /　/;
   const baz = `　`;
 </script>

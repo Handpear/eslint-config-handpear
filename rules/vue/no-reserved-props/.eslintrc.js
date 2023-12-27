@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用保留的 props
      */
-    'vue/no-reserved-props': 'error',
+    "vue/no-reserved-props": "error",
   },
 };

@@ -1,34 +1,34 @@
 /// <reference types="../typings/global" />
 /// <reference types="../typings/rule" />
 
-import fs from 'node:fs';
-import path from 'node:path';
-import prettier, { type RequiredOptions } from 'prettier';
-import prettierrc from '../.prettierrc.json';
-import pkg from '../package.json';
+import fs from "node:fs";
+import path from "node:path";
+import prettier, { type RequiredOptions } from "prettier";
+import prettierrc from "../.prettierrc.json";
+import pkg from "../package.json";
 
 type ConfigName = keyof typeof ruleConfigs;
-const rulesDir = '../rules';
+const rulesDir = "../rules";
 const ruleConfigs = {
   base: {
-    exampleExtension: 'js',
-    domain: '',
-    pluginName: '',
+    exampleExtension: "js",
+    domain: "",
+    pluginName: "",
   },
   typescript: {
-    exampleExtension: 'ts',
-    domain: '@typescript-eslint/',
-    pluginName: '@typescript-eslint/eslint-plugin',
+    exampleExtension: "ts",
+    domain: "@typescript-eslint/",
+    pluginName: "@typescript-eslint/eslint-plugin",
   },
   react: {
-    exampleExtension: 'js',
-    domain: 'react/',
-    pluginName: 'eslint-plugin-react',
+    exampleExtension: "js",
+    domain: "react/",
+    pluginName: "eslint-plugin-react",
   },
   vue: {
-    exampleExtension: 'vue',
-    domain: 'vue/',
-    pluginName: 'eslint-plugin-vue',
+    exampleExtension: "vue",
+    domain: "vue/",
+    pluginName: "eslint-plugin-vue",
   },
 } as const;
 
@@ -41,19 +41,19 @@ const getESLintrcMeta = () => {
  *
  * 依赖版本：
  *   ${[
-   'eslint',
-   'eslint-plugin-react',
-   'eslint-plugin-vue',
-   '@babel/core',
-   '@babel/eslint-parser',
-   '@babel/preset-react',
-   'vue-eslint-parser',
-   '@typescript-eslint/parser',
-   '@typescript-eslint/eslint-plugin',
-   'typescript',
+   "eslint",
+   "eslint-plugin-react",
+   "eslint-plugin-vue",
+   "@babel/core",
+   "@babel/eslint-parser",
+   "@babel/preset-react",
+   "vue-eslint-parser",
+   "@typescript-eslint/parser",
+   "@typescript-eslint/eslint-plugin",
+   "typescript",
  ]
    .map((key) => `${key} ${(pkg.devDependencies as Record<string, string>)[key]}`)
-   .join('\n *   ')}
+   .join("\n *   ")}
  *
  * 此文件是由脚本 scripts/build.ts 自动生成
  */
@@ -63,15 +63,15 @@ const getESLintrcMeta = () => {
 /** 获取规则集合列表 */
 const getRuleModuleList = (configName: ConfigName) => {
   switch (configName) {
-    case 'typescript':
+    case "typescript":
       return Object.entries<Rules.RuleModule>(require(ruleConfigs[configName].pluginName).rules);
-    case 'react':
+    case "react":
       return Object.entries<Rules.RuleModule>(require(ruleConfigs[configName].pluginName).rules);
-    case 'vue':
+    case "vue":
       return Object.entries<Rules.RuleModule>(require(ruleConfigs[configName].pluginName).rules);
 
     default:
-      return Array.from<[string, Rules.RuleModule]>(require('eslint/use-at-your-own-risk').builtinRules.entries());
+      return Array.from<[string, Rules.RuleModule]>(require("eslint/use-at-your-own-risk").builtinRules.entries());
   }
 };
 
@@ -92,7 +92,7 @@ const getCustomRuleConfig = (
   ruleModuleList: ReturnType<typeof getRuleModuleList>,
   ruleName: string,
 ) => {
-  const filePath = path.resolve(__dirname, rulesDir, configName, ruleName, '.eslintrc.js');
+  const filePath = path.resolve(__dirname, rulesDir, configName, ruleName, ".eslintrc.js");
   const fileModule = require(filePath);
   const fullRuleName = ruleConfigs[configName].domain + ruleName;
   const ruleModule = ruleModuleList.find((ruleset) => ruleset[0] === ruleName)?.[1];
@@ -100,18 +100,18 @@ const getCustomRuleConfig = (
     ...ruleConfigs[configName],
     name: fullRuleName,
     value: fileModule.rules[fullRuleName],
-    url: ruleModule?.meta.docs.url || '',
-    description: ruleModule?.meta.docs.description || '',
+    url: ruleModule?.meta.docs.url || "",
+    description: ruleModule?.meta.docs.description || "",
   };
 
   // 判断继承的基础规则
-  if (ruleModule && configName === 'typescript') {
+  if (ruleModule && configName === "typescript") {
     if ((ruleModule.meta as Rules.Typescript.Meta).docs.extendsBaseRule === true) {
       rule.extendedBaseRule = ruleName;
     }
   }
   // 判断继承的基础规则
-  if (ruleModule && configName === 'vue') {
+  if (ruleModule && configName === "vue") {
     if ((ruleModule.meta as Rules.Vue.Meta).docs.extensionRule === true) {
       rule.extendedBaseRule = ruleName;
     }
@@ -126,34 +126,34 @@ const getRuleContent = (configName: ConfigName) => {
   const contentList = customRuleConfigList.map((customRuleConfig) => {
     // 若继承自基础规则，并且是 ts 规则，则需要先关闭基础规则
     const content: string[] = [];
-    if (configName === 'typescript' && customRuleConfig.extendedBaseRule) {
+    if (configName === "typescript" && customRuleConfig.extendedBaseRule) {
       content.push(`'${customRuleConfig.extendedBaseRule}': 'off'`);
     }
     content.push(`'${customRuleConfig.name}': ${JSON.stringify(customRuleConfig.value, null, 4)},`);
 
-    return content.join(',');
+    return content.join(",");
   });
 
-  return contentList.join('');
+  return contentList.join("");
 };
 
 /** 格式化写入 */
-const resolveFormatWrite = async (filePath: string, content: string, parser = 'babel') => {
+const resolveFormatWrite = async (filePath: string, content: string, parser = "babel") => {
   const formatedContent = await prettier.format(content, { ...(prettierrc as Partial<RequiredOptions>), parser });
-  fs.writeFileSync(filePath, formatedContent, 'utf-8');
+  fs.writeFileSync(filePath, formatedContent, "utf-8");
 };
 
 /** 获取插件初始配置的内容 */
 const getInitialESLintrc = (configName: ConfigName) => {
   const initialEslintrcPath = path.resolve(__dirname, `${rulesDir}/${configName}/.eslintrc.js`);
-  if (!fs.existsSync(initialEslintrcPath)) return '';
-  return fs.readFileSync(initialEslintrcPath, 'utf-8');
+  if (!fs.existsSync(initialEslintrcPath)) return "";
+  return fs.readFileSync(initialEslintrcPath, "utf-8");
 };
 
 /** 构建 eslintrc 文件 */
 const buildESLintrc = (configName: ConfigName) => {
   const eslintrcMeta = getESLintrcMeta();
-  const initialESLintrc = getInitialESLintrc(configName).replace(/extends:.*],/, '');
+  const initialESLintrc = getInitialESLintrc(configName).replace(/extends:.*],/, "");
   const ruleContent = getRuleContent(configName);
   const content =
     eslintrcMeta +

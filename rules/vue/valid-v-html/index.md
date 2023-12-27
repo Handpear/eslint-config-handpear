@@ -1,4 +1,3 @@
-
 # [valid-v-html](https://eslint.vuejs.org/rules/valid-v-html.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

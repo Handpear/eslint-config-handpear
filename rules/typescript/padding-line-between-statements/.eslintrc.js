@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 限制语句之间的空行规则，比如变量定义完之后必须要空行
      */
-    '@typescript-eslint/padding-line-between-statements': 'off',
+    "@typescript-eslint/padding-line-between-statements": "off",
   },
 };

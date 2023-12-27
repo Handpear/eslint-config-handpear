@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 属性名必须合法
      */
-    'vue/valid-attribute-name': 'error',
+    "vue/valid-attribute-name": "error",
   },
 };

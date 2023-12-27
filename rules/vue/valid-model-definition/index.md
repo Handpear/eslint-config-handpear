@@ -1,4 +1,3 @@
-
 # [valid-model-definition](https://eslint.vuejs.org/rules/valid-model-definition.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

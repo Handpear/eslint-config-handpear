@@ -1,1 +1,1 @@
-const foo = Symbol('foo');
+const foo = Symbol("foo");

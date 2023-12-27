@@ -23,7 +23,7 @@ pnpm add --save-dev eslint @babel/core @babel/eslint-parser @babel/preset-react@
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/react'],
+  extends: ["handpear", "handpear/react"],
 };
 ```
 
@@ -50,10 +50,10 @@ pnpm add --save-dev eslint typescript @typescript-eslint/parser @typescript-esli
 ```js
 module.exports = {
   // 按顺序引入
-  extends: ['handpear', 'handpear/typescript', 'handpear/react'],
+  extends: ["handpear", "handpear/typescript", "handpear/react"],
   parserOptions: {
     // 你的 tsconfig.json 路径
-    project: './tsconfig.json',
+    project: "./tsconfig.json",
   },
 };
 ```

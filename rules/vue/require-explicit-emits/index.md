@@ -1,4 +1,3 @@
-
 # [require-explicit-emits](https://eslint.vuejs.org/rules/require-explicit-emits.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

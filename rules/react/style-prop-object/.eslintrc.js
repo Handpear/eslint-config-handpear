@@ -3,6 +3,6 @@ module.exports = {
     /**
      * style 属性的取值必须是 object
      */
-    'react/style-prop-object': 'error',
+    "react/style-prop-object": "error",
   },
 };

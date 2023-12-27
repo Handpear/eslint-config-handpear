@@ -3,6 +3,6 @@ module.exports = {
     /**
      * img, br 标签中禁止有 children
      */
-    'react/void-dom-elements-no-children': 'error',
+    "react/void-dom-elements-no-children": "error",
   },
 };

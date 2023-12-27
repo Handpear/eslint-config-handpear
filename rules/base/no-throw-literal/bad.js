@@ -1,2 +1,2 @@
-throw 'foo';
+throw "foo";
 throw 1;

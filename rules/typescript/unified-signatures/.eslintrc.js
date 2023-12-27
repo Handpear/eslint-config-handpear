@@ -1,5 +1,5 @@
 module.exports = {
   rules: {
-    '@typescript-eslint/unified-signatures': 'off',
+    "@typescript-eslint/unified-signatures": "off",
   },
 };

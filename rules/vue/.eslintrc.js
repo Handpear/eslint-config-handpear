@@ -1,16 +1,16 @@
 module.exports = {
-  extends: ['../base/.eslintrc.js'],
-  parser: 'vue-eslint-parser',
+  extends: ["../base/.eslintrc.js"],
+  parser: "vue-eslint-parser",
   parserOptions: {
     parser: {
-      js: '@typescript-eslint/parser',
-      jsx: '@typescript-eslint/parser',
-      ts: '@typescript-eslint/parser',
-      tsx: '@typescript-eslint/parser',
-      '<template>': 'espree',
+      js: "@typescript-eslint/parser",
+      jsx: "@typescript-eslint/parser",
+      ts: "@typescript-eslint/parser",
+      tsx: "@typescript-eslint/parser",
+      "<template>": "espree",
     },
-    sourceType: 'module',
-    extraFileExtensions: ['.vue'],
+    sourceType: "module",
+    extraFileExtensions: [".vue"],
     ecmaVersion: 2020,
     ecmaFeatures: {
       globalReturn: false,
@@ -22,10 +22,10 @@ module.exports = {
     // 仅允许 import export 语句出现在模块的顶层
     allowImportExportEverywhere: false,
   },
-  plugins: ['vue'],
+  plugins: ["vue"],
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 };

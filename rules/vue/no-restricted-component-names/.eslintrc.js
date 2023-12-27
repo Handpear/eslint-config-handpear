@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止特定的组件名称
      */
-    'vue/no-restricted-component-names': 'off',
+    "vue/no-restricted-component-names": "off",
   },
 };

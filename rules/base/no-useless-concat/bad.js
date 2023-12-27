@@ -1,2 +1,2 @@
-const foo = 'f' + 'oo';
+const foo = "f" + "oo";
 const bar = `b` + `ar`;

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 foo && bar();
 foo || bar();
 foo ? bar() : baz();

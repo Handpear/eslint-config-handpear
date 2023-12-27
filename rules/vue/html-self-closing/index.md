@@ -1,4 +1,3 @@
-
 # [html-self-closing](https://eslint.vuejs.org/rules/html-self-closing.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

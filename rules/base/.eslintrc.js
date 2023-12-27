@@ -1,9 +1,9 @@
 module.exports = {
-  parser: '@babel/eslint-parser',
+  parser: "@babel/eslint-parser",
   parserOptions: {
     ecmaVersion: 2020,
     // ECMAScript modules 模式
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
       // 不允许 return 语句出现在 global 环境下
       globalReturn: false,

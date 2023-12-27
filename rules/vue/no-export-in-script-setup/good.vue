@@ -1,3 +1,3 @@
 <script setup>
-  let msg = 'Hello!';
+  let msg = "Hello!";
 </script>

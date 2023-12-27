@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止出现不影响值的表达式
      */
-    'no-constant-binary-expression': 'error',
+    "no-constant-binary-expression": "error",
   },
 };

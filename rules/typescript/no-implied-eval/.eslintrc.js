@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止隐式的类 `eval()` 语法
      */
-    '@typescript-eslint/no-implied-eval': 'error',
+    "@typescript-eslint/no-implied-eval": "error",
   },
 };

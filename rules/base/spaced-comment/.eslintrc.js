@@ -3,13 +3,13 @@ module.exports = {
     /**
      * 注释的斜线或 * 后必须有空格
      */
-    'spaced-comment': [
-      'error',
-      'always',
+    "spaced-comment": [
+      "error",
+      "always",
       {
-        markers: ['/'],
+        markers: ["/"],
         block: {
-          exceptions: ['*'],
+          exceptions: ["*"],
           balanced: true,
         },
       },

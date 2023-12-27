@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 必须使用函数式组件
      */
-    'react/prefer-stateless-function': 'off',
+    "react/prefer-stateless-function": "off",
   },
 };

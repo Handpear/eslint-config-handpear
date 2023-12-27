@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 declare const foo2: any;
 declare const bar2: any;
 declare const baz2: any;

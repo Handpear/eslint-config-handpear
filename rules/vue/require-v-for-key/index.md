@@ -1,4 +1,3 @@
-
 # [require-v-for-key](https://eslint.vuejs.org/rules/require-v-for-key.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

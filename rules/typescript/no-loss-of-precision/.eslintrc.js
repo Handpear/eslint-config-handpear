@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用超出 js 精度范围的数字
      */
-    '@typescript-eslint/no-loss-of-precision': 'error',
+    "@typescript-eslint/no-loss-of-precision": "error",
   },
 };

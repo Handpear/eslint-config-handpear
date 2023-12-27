@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用 dangerouslySetInnerHTML
      */
-    'react/no-danger': 'off',
+    "react/no-danger": "off",
   },
 };

@@ -1,4 +1,3 @@
-
 # [component-tags-order](https://eslint.vuejs.org/rules/component-tags-order.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

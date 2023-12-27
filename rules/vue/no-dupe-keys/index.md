@@ -1,4 +1,3 @@
-
 # [no-dupe-keys](https://eslint.vuejs.org/rules/no-dupe-keys.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

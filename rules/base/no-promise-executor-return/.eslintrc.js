@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止在 Promise 的回调函数中直接 return
      */
-    'no-promise-executor-return': 'error',
+    "no-promise-executor-return": "error",
   },
 };

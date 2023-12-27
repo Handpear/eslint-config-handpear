@@ -1,4 +1,3 @@
-
 # [custom-event-name-casing](https://eslint.vuejs.org/rules/custom-event-name-casing.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

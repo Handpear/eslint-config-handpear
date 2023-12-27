@@ -1,5 +1,5 @@
 <script>
-  import { nextTick as nt } from 'vue';
+  import { nextTick as nt } from "vue";
 
   export default {
     async mounted() {

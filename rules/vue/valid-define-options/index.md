@@ -1,4 +1,3 @@
-
 # [valid-define-options](https://eslint.vuejs.org/rules/valid-define-options.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

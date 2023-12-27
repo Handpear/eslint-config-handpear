@@ -17,7 +17,7 @@
     },
     methods: {
       openModal() {
-        this.$emit('input', 'test');
+        this.$emit("input", "test");
       },
     },
   };

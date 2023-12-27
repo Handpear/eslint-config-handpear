@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用 v-text
      */
-    'vue/no-v-text': 'off',
+    "vue/no-v-text": "off",
   },
 };

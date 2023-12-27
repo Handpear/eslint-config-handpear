@@ -1,5 +1,5 @@
-const b = ~foo.indexOf('.');
+const b = ~foo.indexOf(".");
 const n = +foo;
 const m = 1 * foo;
-const s = '' + foo;
-foo += '';
+const s = "" + foo;
+foo += "";

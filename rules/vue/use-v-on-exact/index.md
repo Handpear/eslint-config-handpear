@@ -1,4 +1,3 @@
-
 # [use-v-on-exact](https://eslint.vuejs.org/rules/use-v-on-exact.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

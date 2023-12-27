@@ -1,6 +1,6 @@
-import type { SiteConfig } from 'vitepress';
+import type { SiteConfig } from "vitepress";
 
-declare module 'vite' {
+declare module "vite" {
   interface UserConfig {
     vitepress?: SiteConfig;
   }
@@ -17,10 +17,10 @@ export interface AutoSidebarOptions {
 export interface AutoSidebarUserOptions extends Partial<AutoSidebarOptions> {}
 
 const defaultOptions: AutoSidebarOptions = {
-  root: '/docs',
+  root: "/docs",
   dirs: [],
-  exclude: ['scripts', 'components', 'assets', '.vitepress'],
-  extensions: ['md'],
+  exclude: ["scripts", "components", "assets", ".vitepress"],
+  extensions: ["md"],
   caseSensitive: false,
 };
 
@@ -36,11 +36,11 @@ function resolveOptionsRoot(root: string): string {
   let newRoot = root;
   const [a, ...b] = root;
 
-  if (b.at(-1) === '/' || b.at(-1) === '\\') b.pop();
-  if (a === '/' || a === '\\') {
-    newRoot = b.join('');
+  if (b.at(-1) === "/" || b.at(-1) === "\\") b.pop();
+  if (a === "/" || a === "\\") {
+    newRoot = b.join("");
   } else {
-    newRoot = [a, ...b].join('');
+    newRoot = [a, ...b].join("");
   }
 
   return newRoot;
@@ -48,18 +48,18 @@ function resolveOptionsRoot(root: string): string {
 
 function resolveOptionsExtensions(extensions: string[]): string[] {
   const newExtensions = extensions.reduce<string[]>((prev, curr) => {
-    if (curr === '*') {
+    if (curr === "*") {
       return prev;
     }
 
-    if (curr.startsWith('*')) {
+    if (curr.startsWith("*")) {
       const [, b, ...c] = curr;
-      if (b === '.') return [c.join(''), ...prev];
+      if (b === ".") return [c.join(""), ...prev];
     }
 
-    if (curr.startsWith('.')) {
+    if (curr.startsWith(".")) {
       const [, ...b] = curr;
-      return [b.join(''), ...prev];
+      return [b.join(""), ...prev];
     }
 
     return [curr, ...prev];

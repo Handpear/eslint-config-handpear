@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止通过导入加载指定模块
      */
-    'no-restricted-imports': 'off',
+    "no-restricted-imports": "off",
   },
 };

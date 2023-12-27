@@ -1,1 +1,1 @@
-import type { ArrowFunction } from 'typescript';
+import type { ArrowFunction } from "typescript";

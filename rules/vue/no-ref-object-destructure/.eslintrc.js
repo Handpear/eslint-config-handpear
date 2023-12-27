@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止解构 ref
      */
-    'vue/no-ref-object-destructure': 'error',
+    "vue/no-ref-object-destructure": "error",
   },
 };

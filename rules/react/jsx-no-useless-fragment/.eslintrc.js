@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止无意义的 Fragment 组件
      */
-    'react/jsx-no-useless-fragment': 'error',
+    "react/jsx-no-useless-fragment": "error",
   },
 };

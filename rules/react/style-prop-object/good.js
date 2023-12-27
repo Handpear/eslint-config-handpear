@@ -1,1 +1,1 @@
-<div style={{ color: 'red' }} />;
+<div style={{ color: "red" }} />;

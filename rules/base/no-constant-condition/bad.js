@@ -1,3 +1,3 @@
 if (true) {
 }
-const foo = 0 ? 'bar' : 'baz';
+const foo = 0 ? "bar" : "baz";

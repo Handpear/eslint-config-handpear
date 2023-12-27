@@ -3,6 +3,6 @@ module.exports = {
     /**
      * iframe 组件必须添加 sandbox 属性
      */
-    'react/iframe-missing-sandbox': 'error',
+    "react/iframe-missing-sandbox": "error",
   },
 };

@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 限制使用特定的 class
      */
-    'vue/no-restricted-class': 'off',
+    "vue/no-restricted-class": "off",
   },
 };

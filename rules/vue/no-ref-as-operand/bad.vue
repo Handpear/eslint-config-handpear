@@ -1,5 +1,5 @@
 <script>
-  import { ref } from 'vue';
+  import { ref } from "vue";
 
   export default {
     setup() {
@@ -9,7 +9,7 @@
       count++;
       count + 1;
       1 + count;
-      var msg = ok ? 'yes' : 'no';
+      var msg = ok ? "yes" : "no";
 
       return {
         count,

@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 限制 jsx 层级
      */
-    'react/jsx-max-depth': 'off',
+    "react/jsx-max-depth": "off",
   },
 };

@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止在 jsx 中使用命名空间
      */
-    'react/no-namespace': 'error',
+    "react/no-namespace": "error",
   },
 };

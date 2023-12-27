@@ -1,1 +1,1 @@
-/^[A]$/u.test('A'); // true
+/^[A]$/u.test("A"); // true

@@ -3,6 +3,6 @@ module.exports = {
     /**
      * jsx 中禁止使用 bind
      */
-    'react/jsx-no-bind': 'off',
+    "react/jsx-no-bind": "off",
   },
 };

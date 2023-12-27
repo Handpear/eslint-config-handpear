@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用 magic numbers
      */
-    '@typescript-eslint/no-magic-numbers': 'off',
+    "@typescript-eslint/no-magic-numbers": "off",
   },
 };

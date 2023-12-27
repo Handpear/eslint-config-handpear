@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止出现重复的 props
      */
-    'react/jsx-no-duplicate-props': 'error',
+    "react/jsx-no-duplicate-props": "error",
   },
 };

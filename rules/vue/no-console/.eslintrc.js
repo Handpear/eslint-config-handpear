@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用 console
      */
-    'vue/no-console': 'off',
+    "vue/no-console": "off",
   },
 };

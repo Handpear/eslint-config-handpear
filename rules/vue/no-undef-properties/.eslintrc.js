@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止使用未定义的属性
      */
-    'vue/no-undef-properties': 'off',
+    "vue/no-undef-properties": "off",
   },
 };

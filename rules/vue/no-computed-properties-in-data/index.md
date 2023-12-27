@@ -1,4 +1,3 @@
-
 # [no-computed-properties-in-data](https://eslint.vuejs.org/rules/no-computed-properties-in-data.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

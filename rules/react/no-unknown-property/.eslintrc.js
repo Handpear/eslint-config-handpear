@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止出现 HTML 中的属性，如 class
      */
-    'react/no-unknown-property': 'error',
+    "react/no-unknown-property": "error",
   },
 };

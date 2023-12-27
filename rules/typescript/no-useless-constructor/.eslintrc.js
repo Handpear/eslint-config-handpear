@@ -3,6 +3,6 @@ module.exports = {
     /**
      * 禁止出现没必要的 constructor
      */
-    '@typescript-eslint/no-useless-constructor': 'error',
+    "@typescript-eslint/no-useless-constructor": "error",
   },
 };

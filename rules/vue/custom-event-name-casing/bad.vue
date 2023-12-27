@@ -2,7 +2,7 @@
   export default {
     methods: {
       onClick() {
-        this.$emit('my-event');
+        this.$emit("my-event");
       },
     },
   };

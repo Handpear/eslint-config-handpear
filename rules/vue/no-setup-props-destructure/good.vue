@@ -6,7 +6,7 @@
       });
 
       return () => {
-        return h('div', props.count);
+        return h("div", props.count);
       };
     },
   };

@@ -1,4 +1,3 @@
-
 # [v-on-event-hyphenation](https://eslint.vuejs.org/rules/v-on-event-hyphenation.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        

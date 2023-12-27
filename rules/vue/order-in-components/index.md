@@ -1,4 +1,3 @@
-
 # [order-in-components](https://eslint.vuejs.org/rules/order-in-components.html)
 
 ## 配置
@@ -12,4 +11,3 @@
 ## 正确示例
 
 <<< ./good.vue
-        
